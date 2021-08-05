@@ -35,8 +35,8 @@
     "id": "2929999935253847535_18371180442032488100",
     "names": {
       "csv": "7-day average positive antigen cases",
-      "json": "antigen_positive_7_day",
-      "sql": "antigen_positive_7_day"
+      "json": "antigen_positive_7_day_average",
+      "sql": "antigen_positive_7_day_average"
     }
   },
   {
