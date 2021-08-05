@@ -1,0 +1,90 @@
+[
+  {
+    "id": "2929999935253847535_6723621973783735488",
+    "names": {
+      "csv": "7-day average PCR tests administered",
+      "json": "pcr_tests_7_day_average",
+      "sql": "pcr_tests_7_day_average"
+    }
+  },
+  {
+    "id": "2929999935253847535_5889793458680349294",
+    "names": {
+      "csv": "7-day average positive PCR cases",
+      "json": "pcr_positive_7_day_average",
+      "sql": "pcr_positive_7_day_average"
+    }
+  },
+  {
+    "id": "2929999935253847535_79187090336162858",
+    "names": {
+      "csv": "7-day PCR positivity rate (percent)",
+      "json": "pcr_positivity_7_day_percent",
+      "sql": "pcr_positivity_7_day_percent"
+    }
+  },
+  {
+    "id": "2929999935253847535_17647086548735351444",
+    "names": {
+      "csv": "7-day average antigen tests administered",
+      "json": "antigen_tests_7_day_average",
+      "sql": "antigen_tests_7_day_average"
+    }
+  },
+  {
+    "id": "2929999935253847535_18371180442032488100",
+    "names": {
+      "csv": "7-day average positive antigen cases",
+      "json": "antigen_positive_7_day",
+      "sql": "antigen_positive_7_day"
+    }
+  },
+  {
+    "id": "2929999935253847535_1737977555809629635",
+    "names": {
+      "csv": "7-day antigen positivity rate (percent)",
+      "json": "antigen_positivity_7_day_percent",
+      "sql": "antigen_positivity_7_day_percent"
+    }
+  },
+  {
+    "id": "2929999935253847535_17700198043956735173",
+    "names": {
+      "csv": "7-day average deaths",
+      "json": "deaths_7_day_average",
+      "sql": "deaths_7_day_average"
+    }
+  },
+  {
+    "id": "2929999935253847535_16551410667199917913",
+    "names": {
+      "csv": "7-day average vaccinations",
+      "json": "vaccinations_7_day_average",
+      "sql": "vaccinations_7_day_average"
+    }
+  },
+  {
+    "id": "2929999935253847535_633941457791422915",
+    "names": {
+      "csv": "hospitalizations",
+      "json": "hospitalizations",
+      "sql": "hospitalizations"
+    }
+  },
+  {
+    "id": "2929999935253847535_8656627433204654909",
+    "names": {
+      "csv": "in ICU",
+      "json": "icu",
+      "sql": "icu"
+    }
+  },
+  {
+    "id": "2929999935253847535_16234140763826236690",
+    "names": {
+      "csv": "on ventilator",
+      "json": "ventilator",
+      "sql": "ventilator"
+    }
+  }
+]
