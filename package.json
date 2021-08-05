@@ -6,13 +6,15 @@
   "type": "module",
   "scripts": {
     "ocr": "node ocr.js",
+    "pages": "node pages.js",
     "screenshot": "node screenshot.js",
-    "update": "npm run screenshot && npm run ocr"
+    "update": "npm run screenshot && npm run ocr && npm run pages"
   },
   "author": "Greg Walker",
   "license": "ISC",
   "dependencies": {
     "dayjs": "^1.10.6",
+    "mustache": "^4.2.0",
     "playwright": "^1.13.1",
     "sqlite3": "^5.0.2",
     "tesseract.js": "^2.1.5"

@@ -1,4 +1,4 @@
-# MO-VID
+# MO-VID [![update MO-VID data](https://github.com/mgwalker/mo-vid/actions/workflows/update.yml/badge.svg)](https://github.com/mgwalker/mo-vid/actions/workflows/update.yml)
 
 Because the [Missouri Department of Health and Senior Services COVID data](https://health.mo.gov/living/healthcondiseases/communicable/novel-coronavirus/data/public-health/)
 is published as a bunch of images (seriously!), it's not acessible to people who

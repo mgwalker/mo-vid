@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>MO-VID</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style type="text/css">
+      body {
+        background: #ddd;
+        font-family: "Kanit", "HelveticaNeue", sans-serif;
+
+        margin: 0;
+        padding: 0;
+      }
+      main {
+        background: white;
+        margin: 0 auto;
+        min-height: calc(100vh - 2em);
+        padding: 2em 2em 0 2em;
+        width: 800px;
+      }
+
+      main h1 {
+        margin-top: 0;
+      }
+      main p {
+        line-height: 1.4em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Missouri COVID data</h1>
+      <p>
+        The data on this page was updated <strong>{{ updated }}</strong>. For
+        the values that are averages over 7 days, the start date is
+        <strong>{{ start }}</strong> and the end date is
+        <strong>{{ end }}</strong>. The original data comes from the
+        <a
+          href="https://results.mo.gov/t/COVID19/views/COVID-19PublicDashboards/Executive?:embed=y&:showVizHome=no&:host_url=https://results.mo.gov/"
+          >Missouri Department of Health and Senior Services</a
+        >.
+      </p>
+
+      <h2>Vaccinations</h2>
+      <p>
+        An average of <strong>{{ vaccinations_7_day_average }}</strong> vaccine
+        doses have been administered per day for the previous 7 days.
+      </p>
+
+      <h2>New cases</h2>
+      <p>
+        There have been an average of <strong>{{ total_new_cases }}</strong> new
+        cases per day for the previous 7 days. This number includes infections
+        confirmed by PCR tests as well as probable cases indicated by antigen
+        tests.
+      </p>
+
+      <p>
+        There have been an average of {{ pcr_positive_7_day_average }} new
+        confirmed cases per day for the previous 7 days. These cases are the
+        result of positive PCR tests, which are are more sensitive to the virus
+        and therefore more accurate. However, not everyone receives a PCR test.
+      </p>
+
+      <p>
+        There have been an average of {{ antigen_positive_7_day_average }} new
+        suspected cases per day for the previous 7 days. These are the result of
+        positive antigen tests, which are not as sensitive as PCR tests. If
+        someone has a positive antigen test and later receives a positive PCR
+        test, they are removed from the "suspected" count and added to the
+        "confirmed" count.
+      </p>
+
+      <p>
+        The positivity rate of PCR tests over the last 7 days is {{
+        pcr_positivity_7_day_percent }}%, with an average of {{
+        pcr_tests_7_day_average }} PCR tests administered per day. The
+        positivity rate of antigen tests over the last 7 days is {{
+        antigen_positivity_7_day_percent }}% with an average of {{
+        antigen_tests_7_day_average }} antigen tests administered per day.
+      </p>
+
+      <h2>Outcomes</h2>
+      <p>
+        There are currently {{ hospitalizations }} people hospitalized with
+        COVID-19. Of those, {{ icu }} are in intensive care, and {{ ventilator
+        }} are on ventilators.
+      </p>
+
+      <p>
+        Over the last 7 days, an average of {{ deaths_7_day_average }} people
+        have died from COVID-19 each day. Note that death reporting can be
+        delayed, so tracking this number over a longer duration will help to
+        understand what is happening in the state.
+      </p>
+    </main>
+  </body>
+</html>
