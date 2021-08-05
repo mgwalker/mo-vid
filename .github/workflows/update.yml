@@ -2,8 +2,8 @@ name: update MO-VID data
 
 on:
   schedule:
-    # Run every hour
-    - cron: '8 * * * *'
+    # Run every four hours
+    - cron: '8 */4 * * *'
 
 jobs:
   update:
