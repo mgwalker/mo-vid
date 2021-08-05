@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import fs from "fs/promises";
 import mustache from "mustache";
 
@@ -12,9 +13,12 @@ const formatter = new Intl.NumberFormat("en-US");
   data.total_new_cases =
     data.pcr_positive_7_day_average + data.antigen_positive_7_day_average;
 
+  const dates = ["updated", "start", "end"];
   Object.entries(data).forEach(([key, value]) => {
     if (typeof value === "number") {
       data[key] = formatter.format(value);
+    } else if (dates.includes(key)) {
+      data[key] = dayjs(value, "YYYY-MM-DD").format("dddd, MMMM D, YYYY");
     }
   });
 
