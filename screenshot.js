@@ -25,7 +25,8 @@ const saveImage = async (page, id, filename) => {
   await fs.mkdir("screenshots", { recursive: true });
 
   const browser = await chromium.launch();
-  const page = await browser.newPage();
+  const context = await browser.newContext({ deviceScaleFactor: 5 });
+  const page = await context.newPage();
   await page.goto(
     "https://results.mo.gov/t/COVID19/views/COVID-19PublicDashboards/Executive?:embed=y&:showVizHome=no&:host_url=https://results.mo.gov/"
   );
