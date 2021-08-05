@@ -48,8 +48,9 @@ const worker = createWorker({
         [id]: +text
           .replace(/\n/g, " ")
           .replace(/7 (per)?day/gi, "")
-          .replace(/covid-?19/gi, "")
+          .replace(/covid-?\S+/gi, "")
           .replace(/as ?of ?\d+\/\d+\/\d+/gi, "")
+          .replace(/\([^)]*\)/g, "")
           .replace(/[^\d.]/g, ""),
       };
     }
