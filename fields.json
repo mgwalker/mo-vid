@@ -8,11 +8,27 @@
     }
   },
   {
+    "id": "2929999935253847535_17016553417710587964",
+    "names": {
+      "csv": "7-day average PCR tests administered per 100k residents",
+      "json": "pcr_tests_7_day_average_per_100k",
+      "sql": "pcr_tests_7_day_average_per_100k"
+    }
+  },
+  {
     "id": "2929999935253847535_5889793458680349294",
     "names": {
       "csv": "7-day average positive PCR cases",
       "json": "pcr_positive_7_day_average",
       "sql": "pcr_positive_7_day_average"
+    }
+  },
+  {
+    "id": "2929999935253847535_11870100250213418514",
+    "names": {
+      "csv": "7-day average positive PCR cases per 100k residents",
+      "json": "pcr_positive_7_day_average_per_100k",
+      "sql": "pcr_positive_7_day_average_per_100k"
     }
   },
   {
@@ -32,11 +48,27 @@
     }
   },
   {
+    "id": "2929999935253847535_10960216956310770041",
+    "names": {
+      "csv": "7-day average antigen tests administered per 100k residents",
+      "json": "antigen_tests_7_day_average_per_100k",
+      "sql": "antigen_tests_7_day_average_per_100k"
+    }
+  },
+  {
     "id": "2929999935253847535_18371180442032488100",
     "names": {
       "csv": "7-day average positive antigen cases",
       "json": "antigen_positive_7_day_average",
       "sql": "antigen_positive_7_day_average"
+    }
+  },
+  {
+    "id": "2929999935253847535_7279152374512852838",
+    "names": {
+      "csv": "7-day average positive antigen cases per 100k residents",
+      "json": "antigen_positive_7_day_average_per_100k",
+      "sql": "antigen_positive_7_day_average_per_100k"
     }
   },
   {
@@ -53,6 +85,14 @@
       "csv": "7-day average deaths",
       "json": "deaths_7_day_average",
       "sql": "deaths_7_day_average"
+    }
+  },
+  {
+    "id": "2929999935253847535_10811141596949811846",
+    "names": {
+      "csv": "7-day average deaths per 100k residents",
+      "json": "deaths_7_day_average_per_100k",
+      "sql": "deaths_7_day_average_per_100k"
     }
   },
   {
