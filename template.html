@@ -32,6 +32,11 @@
       main p {
         line-height: 1.4em;
       }
+
+      img {
+        margin: 0 auto;
+        max-width: 70%;
+      }
     </style>
   </head>
   <body>
@@ -53,6 +58,7 @@
         An average of <strong>{{ vaccinations_7_day_average }}</strong> vaccine
         doses have been administered per day for the previous 7 days.
       </p>
+      <img src="charts/vaccinations_7_day_average.png" />
 
       <h2>New cases</h2>
       <p>
@@ -61,6 +67,7 @@
         confirmed by PCR tests as well as probable cases indicated by antigen
         tests.
       </p>
+      <img src="charts/totalPositive.png" />
 
       <p>
         There have been an average of {{ pcr_positive_7_day_average }} new
@@ -90,9 +97,15 @@
       <h2>Outcomes</h2>
       <p>
         There are currently {{ hospitalizations }} people hospitalized with
-        COVID-19. Of those, {{ icu }} are in intensive care, and {{ ventilator
-        }} are on ventilators.
+        COVID-19.
       </p>
+      <img src="charts/hospitalizations.png" />
+
+      <p>{{ icu }} people are in intensive care.</p>
+      <img src="charts/icu.png" />
+
+      <p>{{ ventilator }} people are on ventilators.</p>
+      <img src="charts/ventilator.png" />
 
       <p>
         Over the last 7 days, an average of {{ deaths_7_day_average }} people
@@ -100,6 +113,7 @@
         delayed, so tracking this number over a longer duration will help to
         understand what is happening in the state.
       </p>
+      <img src="charts/deaths_7_day_average.png" />
     </main>
   </body>
 </html>

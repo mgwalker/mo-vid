@@ -5,10 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "makeCharts": "node makeCharts/make.js",
     "ocr": "node ocr.js",
     "pages": "node pages.js",
     "screenshot": "node screenshot.js",
-    "update": "npm run screenshot && npm run ocr && npm run pages"
+    "update": "npm run screenshot && npm run ocr && npm run pages && npm run makeCharts"
   },
   "author": "Greg Walker",
   "license": "ISC",
