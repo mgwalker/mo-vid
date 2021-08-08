@@ -47,7 +47,7 @@
           window.chart = new Chart(ctx, {
             type: "line",
             data: {
-              labels: data.map(({ updated }) => updated),
+              labels: data.map(({ end }) => end),
               datasets: [
                 {
                   label: "",
