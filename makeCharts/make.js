@@ -40,7 +40,10 @@ const serve = async () =>
 
 const server = await serve();
 
-await fs.rm(path.join(dir, "..", "docs/charts"), { recursive: true });
+await fs.rm(path.join(dir, "..", "docs/charts"), {
+  force: true,
+  recursive: true,
+});
 await fs.mkdir(path.join(dir, "..", "docs/charts"), { recursive: true });
 
 const browser = await chromium.launch();
