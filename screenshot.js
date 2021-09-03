@@ -21,7 +21,7 @@ const saveImage = async (page, id, filename) => {
 };
 
 (async () => {
-  await fs.rmdir("screenshots", { recursive: true });
+  await fs.rm("screenshots", { recursive: true });
   await fs.mkdir("screenshots", { recursive: true });
 
   const browser = await chromium.launch();
