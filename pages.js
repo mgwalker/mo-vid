@@ -4,7 +4,7 @@ import mustache from "mustache";
 
 const formatter = new Intl.NumberFormat("en-US");
 
-await fs.mkdir(path.join(dir, "docs"), { recursive: true });
+await fs.mkdir("docs", { recursive: true });
 
 const template = await fs.readFile("template.html", { encoding: "utf-8" });
 const data = JSON.parse(
