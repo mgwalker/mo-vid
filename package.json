@@ -14,7 +14,7 @@
   "author": "Greg Walker",
   "license": "ISC",
   "dependencies": {
-    "chartjs-node": "github:mgwalker/chartjs-node",
+    "@mgwalker/chartjs-node": "^0.0.2",
     "dayjs": "^1.10.6",
     "mustache": "^4.2.0",
     "playwright": "^1.13.1",

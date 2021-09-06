@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
-import Chart from "chartjs-node";
+import Chart from "@mgwalker/chartjs-node";
 
 const dir = path.dirname(fileURLToPath(import.meta.url));
 
@@ -37,6 +37,7 @@ await Promise.all(
     ["deaths_7_day_average", "192,0,0"],
   ].map(async ([field, colorRgb]) => {
     const chart = new Chart([1200, 800], {
+      deviceScaleFactor: 3,
       type: "line",
       data: {
         labels,
