@@ -1972,5 +1972,26 @@
     "hospitalizations": 1039,
     "icu": 249,
     "ventilator": 167
+  },
+  {
+    "updated": "2021-11-07",
+    "start": "2021-10-29",
+    "end": "2021-11-04",
+    "pcr_tests_7_day_average": 11637,
+    "pcr_tests_7_day_average_per_100k": 1327,
+    "pcr_positive_7_day_average": 717,
+    "pcr_positive_7_day_average_per_100k": 82,
+    "pcr_positivity_7_day_percent": 6.8,
+    "antigen_tests_7_day_average": 6485,
+    "antigen_tests_7_day_average_per_100k": 740,
+    "antigen_positive_7_day_average": 229,
+    "antigen_positive_7_day_average_per_100k": 26,
+    "antigen_positivity_7_day_percent": 4.1,
+    "deaths_7_day_average": 2,
+    "deaths_7_day_average_per_100k": 0.2,
+    "vaccinations_7_day_average": 18213,
+    "hospitalizations": 0,
+    "icu": 241,
+    "ventilator": 157
   }
 ]
