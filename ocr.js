@@ -24,7 +24,9 @@ const dates = await (async () => {
   const {
     data: { text },
   } = await worker.recognize("./screenshots/date.png");
-  const [, updated] = text.match(/updated on (\d+\/\d+\/\d{4})\./i);
+  const [, , updated] = text.match(
+    /updated (on|in the afternoon of) (\d{1,2}\/\d{1,2}\/\d{4})\./i
+  );
 
   const latest = dayjs.utc(updated);
   return [
