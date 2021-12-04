@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import sqlite from "sqlite3";
+import url from "url";
 
 const fields = JSON.parse(
   await fs.readFile("./fields.json", { encoding: "utf-8" })
@@ -28,7 +29,7 @@ const get = async (db, query, params) =>
     });
   });
 
-export default async (dates, data) => {
+const addData = async (dates, data) => {
   await fs.mkdir(dir, { recursive: true });
   const [updated, start, end] = dates.split(",");
 
@@ -63,3 +64,26 @@ export default async (dates, data) => {
     await run(db, query, values);
   }
 };
+
+export default addData;
+
+const rebuild = async () => {
+  await fs.unlink(path);
+
+  const js = JSON.parse(
+    await fs.readFile(`${dir}/mo-vid.json`, { encoding: "utf-8" })
+  ).map((data) => ({
+    dates: [data.updated, data.start, data.end].join(","),
+    data: Object.keys(data)
+      .slice(3)
+      .reduce((o, key, i) => ({ ...o, [fields[i].id]: data[key] }), {}),
+  }));
+
+  for await (const { dates, data } of js) {
+    await addData(dates, data);
+  }
+};
+
+if (import.meta.url === url.pathToFileURL(process.argv[1]).href) {
+  rebuild();
+}
