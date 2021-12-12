@@ -6,6 +6,12 @@ const formatter = new Intl.NumberFormat("en-US");
 
 await fs.mkdir("docs", { recursive: true });
 
+await Promise.all([
+  fs.copyFile("output/mo-vid.csv", "docs/mo-vid.csv"),
+  fs.copyFile("output/mo-vid.json", "docs/mo-vid.json"),
+  fs.copyFile("output/mo-vid.sqlite", "docs/mo-vid.sqlite"),
+]);
+
 const template = await fs.readFile("template.html", { encoding: "utf-8" });
 const data = JSON.parse(
   await fs.readFile("output/mo-vid.json", { encoding: "utf-8" })
