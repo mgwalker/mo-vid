@@ -4,7 +4,9 @@ import url from "url";
 
 const fields = JSON.parse(
   await fs.readFile("./fields.json", { encoding: "utf-8" })
-).map(({ id, names: { sql: name } }) => ({ id, name }));
+)
+  .flatMap(({ fields }) => fields)
+  .map(({ id, names: { sql: name }, tracked }) => ({ id, name, tracked }));
 
 const dir = "output";
 const path = `${dir}/mo-vid.sqlite`;
@@ -49,14 +51,16 @@ const addData = async (dates, data) => {
     }
   );
 
+  const tracked = fields.filter(({ tracked }) => tracked);
+
   if (count === 0) {
     const columns = [
       "updated",
       "start",
       "end",
-      ...fields.map(({ name }) => name),
+      ...tracked.map(({ name }) => name),
     ];
-    const values = [updated, start, end, ...fields.map(({ id }) => data[id])];
+    const values = [updated, start, end, ...tracked.map(({ id }) => data[id])];
 
     const query = `INSERT INTO mo_vid (${columns.join(",")}) VALUES (${values
       .map(() => "?")

@@ -10,7 +10,9 @@ dayjs.extend(utc);
 
 const fields = JSON.parse(
   await fs.readFile("./fields.json", { encoding: "utf-8" })
-);
+)
+  .flatMap(({ fields }) => fields)
+  .filter(({ tracked }) => tracked);
 
 const worker = createWorker({
   logger: () => false,

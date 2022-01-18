@@ -3,7 +3,9 @@ import exists from "./exists.js";
 
 const fields = JSON.parse(
   await fs.readFile("./fields.json", { encoding: "utf-8" })
-).map(({ id, names: { csv: name } }) => ({ id, name }));
+)
+  .flatMap(({ fields }) => fields)
+  .map(({ id, names: { csv: name }, tracked }) => ({ id, name, tracked }));
 
 const dir = "output";
 const path = `${dir}/mo-vid.csv`;
@@ -12,8 +14,8 @@ export default async (dates, data) => {
   await fs.mkdir(dir, { recursive: true });
 
   const sorted = [];
-  fields.forEach(({ id }) => {
-    sorted.push(data[id]);
+  fields.forEach(({ id, tracked }) => {
+    sorted.push(tracked ? data[id] : "");
   });
 
   if (await exists(path)) {

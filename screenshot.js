@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import { chromium } from "playwright";
 
-const fields = JSON.parse(
+const pages = JSON.parse(
   await fs.readFile("./fields.json", { encoding: "utf-8" })
 );
 
@@ -25,18 +25,24 @@ await fs.mkdir("screenshots", { recursive: true });
 
 const browser = await chromium.launch();
 const context = await browser.newContext({ deviceScaleFactor: 5 });
-const page = await context.newPage();
-await page.goto(
-  "https://results.mo.gov/t/COVID19/views/COVID-19PublicDashboards/Executive?:embed=y&:showVizHome=no&:host_url=https://results.mo.gov/"
-);
 
-try {
-  await page.waitForSelector(`#view${fields[0].id} canvas`);
+for (const { fields, primary, source } of pages) {
+  const page = await context.newPage();
+  await page.goto(source);
 
-  await saveImage(page, "2929999935253847535_2507015370604109783", "date");
-  await Promise.all(fields.map(async ({ id }) => saveImage(page, id, id)));
-} catch (e) {
-  console.log(e);
+  try {
+    await page.waitForSelector(`#view${fields[0].id} canvas`);
+
+    if (primary === true) {
+      await saveImage(page, "2929999935253847535_2507015370604109783", "date");
+    }
+    await Promise.all(
+      fields
+        .filter(({ tracked }) => tracked)
+        .map(async ({ id }) => saveImage(page, id, id))
+    );
+  } catch (e) {
+    console.log(e);
+  }
 }
-
 await browser.close();

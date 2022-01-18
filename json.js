@@ -3,7 +3,9 @@ import exists from "./exists.js";
 
 const fields = JSON.parse(
   await fs.readFile("./fields.json", { encoding: "utf-8" })
-).map(({ id, names: { json: name } }) => ({ id, name }));
+)
+  .flatMap(({ fields }) => fields)
+  .map(({ id, names: { json: name }, tracked }) => ({ id, name, tracked }));
 
 const dir = "output";
 const path = `${dir}/mo-vid.json`;
@@ -25,8 +27,8 @@ export default async (dates, data) => {
     start,
     end,
   };
-  fields.forEach(({ id, name }) => {
-    newData[name] = data[id];
+  fields.forEach(({ id, name, tracked }) => {
+    newData[name] = tracked ? data[id] : "";
   });
   output.push(newData);
 

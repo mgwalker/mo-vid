@@ -33,7 +33,7 @@ await Promise.all(
     ["vaccinations_7_day_average", "0,170,0"],
     ["hospitalizations", "192,192,0"],
     ["icu", "255,128,0"],
-    ["ventilator", "192,64,0"],
+    // ["ventilator", "192,64,0"],
     ["deaths_7_day_average", "192,0,0"],
   ].map(async ([field, colorRgb]) => {
     const chart = new Chart([1200, 800], {
