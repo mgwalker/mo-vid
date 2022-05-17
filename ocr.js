@@ -11,6 +11,7 @@ dayjs.extend(utc);
 const fields = JSON.parse(
   await fs.readFile("./fields.json", { encoding: "utf-8" })
 )
+  .filter(({ active }) => active)
   .flatMap(({ fields }) => fields)
   .filter(({ tracked }) => tracked);
 
@@ -26,15 +27,15 @@ const dates = await (async () => {
   const {
     data: { text },
   } = await worker.recognize("./screenshots/date.png");
-  const [, , updated] = text.match(
-    /updated (on|in the afternoon of) (\d{1,2}\/\d{1,2}\/\d{4})\./i
+  const [, updated] = text.match(
+    /Data last updated on (\d{1,2}\/\d{1,2}\/\d{4}) and/i
   );
 
   const latest = dayjs.utc(updated);
   return [
     latest.format("YYYY-MM-DD"),
-    dayjs(latest).subtract(9, "days").format("YYYY-MM-DD"),
-    dayjs(latest).subtract(3, "days").format("YYYY-MM-DD"),
+    dayjs(latest).subtract(8, "days").format("YYYY-MM-DD"),
+    dayjs(latest).subtract(2, "days").format("YYYY-MM-DD"),
   ].join(",");
 })();
 

@@ -4,6 +4,7 @@ import exists from "./exists.js";
 const fields = JSON.parse(
   await fs.readFile("./fields.json", { encoding: "utf-8" })
 )
+  .filter(({ active }) => active)
   .flatMap(({ fields }) => fields)
   .map(({ id, names: { json: name }, tracked }) => ({ id, name, tracked }));
 

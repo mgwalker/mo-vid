@@ -17,8 +17,7 @@ const data = JSON.parse(
   await fs.readFile("output/mo-vid.json", { encoding: "utf-8" })
 ).pop();
 
-data.total_new_cases =
-  data.pcr_positive_7_day_average + data.antigen_positive_7_day_average;
+data.avg_per_day = Math.round(data.new_cases_7_day / 7);
 
 const dates = ["updated", "start", "end"];
 Object.entries(data).forEach(([key, value]) => {

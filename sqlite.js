@@ -5,11 +5,22 @@ import url from "url";
 const fields = JSON.parse(
   await fs.readFile("./fields.json", { encoding: "utf-8" })
 )
+  .filter(({ active }) => active)
   .flatMap(({ fields }) => fields)
   .map(({ id, names: { sql: name }, tracked }) => ({ id, name, tracked }));
 
 const dir = "output";
 const path = `${dir}/mo-vid.sqlite`;
+
+const all = async (db, query, params) =>
+  new Promise((resolve, reject) => {
+    db.all(query, params, (err, out) => {
+      if (err) {
+        return reject(err);
+      }
+      return resolve(out);
+    });
+  });
 
 const run = async (db, query, params) =>
   new Promise((resolve, reject) => {
@@ -41,6 +52,18 @@ const addData = async (dates, data) => {
     `CREATE TABLE IF NOT EXISTS mo_vid (updated TEXT, start TEXT, end TEXT, ${fields
       .map(({ name }) => name)
       .join(" REAL, ")} REAL)`
+  );
+
+  const pragma = await all(db, "PRAGMA table_info(mo_vid)");
+  const columns = new Set(pragma.map(({ name }) => name));
+
+  await Promise.all(
+    fields.map((field) => {
+      if (!columns.has(field.name)) {
+        return run(db, `ALTER TABLE mo_vid ADD COLUMN ${field.name} REAL`);
+      }
+      return Promise.resolve();
+    })
   );
 
   const { count } = await get(
@@ -91,3 +114,11 @@ const rebuild = async () => {
 if (import.meta.url === url.pathToFileURL(process.argv[1]).href) {
   rebuild();
 }
+
+const db = new sqlite.Database(path);
+await run(
+  db,
+  `CREATE TABLE IF NOT EXISTS mo_vid (updated TEXT, start TEXT, end TEXT, ${fields
+    .map(({ name }) => name)
+    .join(" REAL, ")} REAL)`
+);

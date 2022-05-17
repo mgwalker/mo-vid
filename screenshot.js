@@ -1,9 +1,16 @@
 import fs from "fs/promises";
 import { chromium } from "playwright";
 
+const sleep = (ms) =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
+
 const pages = JSON.parse(
   await fs.readFile("./fields.json", { encoding: "utf-8" })
-);
+).filter(({ active }) => active);
 
 const getDataUrl = (domId) => {
   const canvas = document.querySelector(`#view${domId} canvas`);
@@ -31,16 +38,20 @@ for (const { fields, primary, source } of pages) {
   await page.goto(source);
 
   try {
-    await page.waitForSelector(`#view${fields[0].id} canvas`);
+    await page.waitForSelector(`#view${fields[0].domId} canvas`);
 
     if (primary === true) {
-      await saveImage(page, "2929999935253847535_2507015370604109783", "date");
+      await saveImage(page, "1101353918436015903_1210198737766094474", "date");
     }
-    await Promise.all(
-      fields
-        .filter(({ tracked }) => tracked)
-        .map(async ({ id }) => saveImage(page, id, id))
-    );
+
+    const images = fields.filter(({ tracked }) => tracked);
+    for await (const { id, domId, click } of images) {
+      if (click) {
+        await page.check(`#${click}`);
+        await sleep(2_000);
+      }
+      await saveImage(page, domId, id);
+    }
   } catch (e) {
     console.log(e);
   }

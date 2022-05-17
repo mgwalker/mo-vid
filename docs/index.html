@@ -43,10 +43,10 @@
     <main>
       <h1>Missouri COVID data</h1>
       <p>
-        The data on this page was updated <strong>Thursday, March 31, 2022</strong>. For
+        The data on this page was updated <strong>Friday, May 13, 2022</strong>. For
         the values that are averages over 7 days, the start date is
-        <strong>Tuesday, March 22, 2022</strong> and the end date is
-        <strong>Monday, March 28, 2022</strong>. The original data comes from the
+        <strong>Thursday, May 5, 2022</strong> and the end date is
+        <strong>Wednesday, May 11, 2022</strong>. The original data comes from the
         <a
           href="https://results.mo.gov/t/COVID19/views/COVID-19PublicDashboards/Executive?:embed=y&:showVizHome=no&:host_url=https://results.mo.gov/"
           >Missouri Department of Health and Senior Services</a
@@ -57,84 +57,63 @@
       <p>
         This data is available to download as CSV, JSON, or a sqlite database.
         To read more about the data formats, please
-        <a href="https://github.com/mgwalker/mo-vid#the-data">check the project
-        </a>README.
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <a href="mo-vid.csv" download>CSV</a>
-              </td>
-              <td>
-                <a href="mo-vid.json" download>JSON</a>
-              </td>
-              <td>
-                <a href="mo-vid.sqlite" download>sqlite</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <a href="https://github.com/mgwalker/mo-vid#the-data"
+          >check the project </a
+        >README.
       </p>
-
-      <h2>Vaccinations</h2>
-      <p>
-        An average of <strong>2,001</strong> vaccine
-        doses have been administered per day for the previous 7 days.
-      </p>
-      <img src="charts/vaccinations_7_day_average.png" />
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <a href="mo-vid.csv" download>CSV</a>
+            </td>
+            <td>
+              <a href="mo-vid.json" download>JSON</a>
+            </td>
+            <td>
+              <a href="mo-vid.sqlite" download>sqlite</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
       <h2>New cases</h2>
       <p>
-        There have been an average of <strong>182</strong> new
-        cases per day for the previous 7 days. This number includes infections
-        confirmed by PCR tests as well as probable cases indicated by antigen
-        tests.
+        There have been <strong>5,602</strong> new cases in the
+        past 7 days, about <strong>800 per day</strong>.
       </p>
       <img src="charts/totalPositive.png" />
 
-      <p>
-        There have been an average of 148 new
-        confirmed cases per day for the previous 7 days. These cases are the
-        result of positive PCR tests, which are are more sensitive to the virus
-        and therefore more accurate. However, not everyone receives a PCR test.
-      </p>
-
-      <p>
-        There have been an average of 34 new
-        suspected cases per day for the previous 7 days. These are the result of
-        positive antigen tests, which are not as sensitive as PCR tests. If
-        someone has a positive antigen test and later receives a positive PCR
-        test, they are removed from the "suspected" count and added to the
-        "confirmed" count.
-      </p>
-
-      <p>
-        The positivity rate of PCR tests over the last 7 days is 3%, with an average of 5,548 PCR tests administered per day. The
-        positivity rate of antigen tests over the last 7 days is 1.3% with an average of 3,489 antigen tests administered per day.
-      </p>
-
       <h2>Outcomes</h2>
       <p>
-        There are currently 0 people hospitalized with
+        There are currently 412 people hospitalized with
         COVID-19.
       </p>
       <img src="charts/hospitalizations.png" />
 
-      <p>145 people are in intensive care.</p>
+      <p>33 people are in intensive care.</p>
       <img src="charts/icu.png" />
 
+      <h2>Unavailable</h2>
       <p>
         Starting January 18, 2022, the Missouri Department of Health and Senior
         Services no longer reports the number of people on ventilators.
       </p>
 
       <p>
-        Over the last 7 days, an average of 1 people
-        have died from COVID-19 each day. Note that death reporting can be
-        delayed, so tracking this number over a longer duration will help to
-        understand what is happening in the state.
+        The following sets of data are no longer available as of April 1, 2022:
       </p>
-      <img src="charts/deaths_7_day_average.png" />
+      <ul>
+        <li>new vaccinations</li>
+        <li>tests administered</li>
+        <li>positivity rate</li>
+        <li>deaths (only displayed in a graph now)</li>
+      </ul>
+      <p>
+        The data also previously distinguished between "confirmed" and
+        "probable" cases, based on what kind of test was used. That is also no
+        longer available.
+      </p>
     </main>
   </body>
 </html>

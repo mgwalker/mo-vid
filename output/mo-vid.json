@@ -4513,5 +4513,13 @@
     "hospitalizations": 0,
     "icu": 145,
     "ventilator": ""
+  },
+  {
+    "updated": "2022-05-13",
+    "start": "2022-05-05",
+    "end": "2022-05-11",
+    "new_cases_7_day": 5602,
+    "hospitalizations": 412,
+    "icu": 33
   }
 ]
