@@ -48,7 +48,7 @@ for (const { fields, primary, source } of pages) {
     for await (const { id, domId, click } of images) {
       if (click) {
         await sleep(2_000);
-        await page.check(`#${click}`);
+        await page.click(`#${click}`);
         await sleep(2_000);
       }
       await saveImage(page, domId, id);
