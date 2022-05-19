@@ -2,7 +2,7 @@ name: update MO-VID data
 
 on:
   schedule:
-    Run every evening
+    # Run every evening
     - cron: '0 23 * * *'
 
 jobs:
