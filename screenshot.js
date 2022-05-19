@@ -47,7 +47,6 @@ for (const { fields, primary, source } of pages) {
     const images = fields.filter(({ tracked }) => tracked);
     for await (const { id, domId, click } of images) {
       if (click) {
-        await sleep(2_000);
         await page.click(`#${click}`);
         await sleep(2_000);
       }
