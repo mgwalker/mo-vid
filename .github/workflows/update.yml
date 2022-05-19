@@ -18,12 +18,12 @@ jobs:
       - name: install dependencies
         run: npm install
       - name: do the update
-        # run: npm run update
-        env:
-          DEBUG: "pw:api"
-        run: >
-          npm run screenshot
-          ls -lsa screenshots
+        run: npm run update
+        # env:
+        #   DEBUG: "pw:api"
+        # run: >
+        #   npm run screenshot
+        #   ls -lsa screenshots
       - name: commit
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
