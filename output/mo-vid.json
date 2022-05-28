@@ -4529,5 +4529,13 @@
     "new_cases_7_day": 6361,
     "hospitalizations": 465,
     "icu": 51
+  },
+  {
+    "updated": "2022-05-27",
+    "start": "2022-05-19",
+    "end": "2022-05-25",
+    "new_cases_7_day": 7572,
+    "hospitalizations": 465,
+    "icu": 44
   }
 ]
