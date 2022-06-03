@@ -4537,5 +4537,13 @@
     "new_cases_7_day": 7572,
     "hospitalizations": 465,
     "icu": 44
+  },
+  {
+    "updated": "2022-06-03",
+    "start": "2022-05-26",
+    "end": "2022-06-01",
+    "new_cases_7_day": 8603,
+    "hospitalizations": 574,
+    "icu": 44
   }
 ]
