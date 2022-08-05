@@ -4609,5 +4609,13 @@
     "new_cases_7_day": 12749,
     "hospitalizations": 998,
     "icu": 135
+  },
+  {
+    "updated": "2022-08-05",
+    "start": "2022-07-28",
+    "end": "2022-08-03",
+    "new_cases_7_day": 11061,
+    "hospitalizations": 1009,
+    "icu": 131
   }
 ]
