@@ -1,9 +1,6 @@
 name: update MO-VID data
 
-on:
-  schedule:
-    # Run every evening
-    - cron: '0 23 * * *'
+on: workflow_dispatch
 
 jobs:
   update:
