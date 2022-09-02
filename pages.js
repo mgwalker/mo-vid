@@ -28,5 +28,12 @@ Object.entries(data).forEach(([key, value]) => {
   }
 });
 
-const page = mustache.render(template, data);
-await fs.writeFile("docs/index.html", page, { encoding: "utf-8" });
+// Don't update the web page anymore. Uncomment this to put the page back up
+// with charts and info and stuff. There's still a triggerable action to
+// update the downloadable data, but I don't want the main page to be updated
+// unless I do it myself. Thus... commented. In case I want it again.
+//
+// YAGNI, but also I don't care. :)
+//
+// const page = mustache.render(template, data);
+// await fs.writeFile("docs/index.html", page, { encoding: "utf-8" });
